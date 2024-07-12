@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.header_container{
+    display: flex;
+    align-items: center;
+    background-color: black;
+    gap: 10px;
+    color: white;
+    height: 70px;
+}
+.logo_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 250px;
+}
+.logo_container img{
+    width: 80%;
+    padding-top: 5px;
+    margin-left: 20px;
+    vertical-align: middle;
+}
+.delivery{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    font-weight: bold;
+    padding: 5px;
+}
+.delivery p{
+    font-size: 10px;
+}
+
