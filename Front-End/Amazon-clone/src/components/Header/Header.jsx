@@ -29,7 +29,6 @@ export const Header = () => {
         </div>
 
         {/* search section */}
-        <div>
           <div className={classes.search}>
             <select name="" id="">
               <option value="">All</option>
@@ -37,8 +36,6 @@ export const Header = () => {
             <input type="text" />
             <FaSearch size={25} />
           </div>
-        </div>
-
         {/* cart section */}
         <div className={classes.order_container}>
           <a href="/" className={classes.language}>
