@@ -3,6 +3,8 @@ import classes from "./Header.module.css";
 import { CiLocationOn } from "react-icons/ci";
 import { FaSearch } from "react-icons/fa";
 import { FaCartArrowDown } from "react-icons/fa6";
+import "./LowerHeader"
+import { LowerHeader } from "./LowerHeader";
 
 export const Header = () => {
   return (
@@ -63,6 +65,7 @@ export const Header = () => {
           </a>
         </div>
       </section>
+      <LowerHeader />
     </>
   );
 };
