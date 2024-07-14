@@ -1,36 +1,116 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
-.header_container{
-    display: flex;
-    align-items: center;
-    background-color: black;
-    gap: 10px;
-    color: white;
-    height: 70px;
+.header_container {
+  display: flex;
+  align-items: center;
+  background-color: black;
+  gap: 10px;
+  color: white;
+  height: 70px;
 }
-.logo_container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    max-width: 250px;
+.logo_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 250px;
 }
-.logo_container img{
-    width: 80%;
-    padding-top: 5px;
-    margin-left: 20px;
-    vertical-align: middle;
+.logo_container img {
+  width: 80%;
+  padding-top: 5px;
+  margin-left: 20px;
+  vertical-align: middle;
 }
-.delivery{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 3px;
-    font-weight: bold;
-    padding: 5px;
+.delivery {
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  font-weight: bold;
+  padding: 5px;
 }
-.delivery p{
-    font-size: 10px;
+.delivery p {
+  font-size: 8px;
 }
-
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%;
+  flex: 1;
+}
+.search select,
+.search input {
+  padding: 10px;
+  font-weight: bold;
+  outline: 1px solid white;
+}
+.search select {
+  border: none;
+}
+.search input {
+  border: 1px solid white;
+  /* width: 100%; */
+  width: 530px;
+  /* margin-right: -2px; */
+}
+.search svg {
+  padding: 7px;
+  background: #febd69;
+  color: black;
+}
+.search svg:hover {
+  background-color: #d49644;
+}
+.search:focus-within {
+  border: 2px solid rgb(235, 161, 173);
+}
+.order_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 450px;
+  gap: 10px;
+}
+.order_container a{
+  text-decoration: none;
+  color: white;
+}
+.order_container p{
+  font-size: 10px;
+}
+.language{
+  width: 100px;
+  display: flex;
+  padding: 10px;
+}
+.language select{
+  border: none;
+  background-color: #1a1a1a;
+  color: white;
+}
+.language img{
+  width: 40%;
+}
+.cart{
+  position: relative;
+}
+.cart span{
+  position: absolute;
+  font-weight: bold;
+  top: 0px;
+  font-size: 20px;
+  background-color: black;
+  left: 16px;
+  color: orange;
+}
+.order_container a:hover,
+.delivery:hover,
+.logo_container a:hover,
+.lower_container ul li:hover{
+  border: 1px solid white;
+  border-radius: 3px;
+}

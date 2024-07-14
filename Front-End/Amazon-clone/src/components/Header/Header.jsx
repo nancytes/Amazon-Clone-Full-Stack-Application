@@ -16,37 +16,39 @@ export const Header = () => {
               alt="amazon image"
             />
           </a>
+          <span>
+              <CiLocationOn />
+            </span>
           <div className={classes.delivery}>
-            <span><CiLocationOn /></span>
-            <p>Deliver to</p>
+            
+            <p>Deliver to</p> 
             <span>Ethiopia</span>
           </div>
         </div>
 
         {/* search section */}
         <div>
-          <div>
+          <div className={classes.search}>
             <select name="" id="">
               <option value="">All</option>
             </select>
             <input type="text" />
-            <FaSearch size={25}/>
+            <FaSearch size={25} />
           </div>
         </div>
 
         {/* cart section */}
-        <div>
-          <a href="/">
+        <div className={classes.order_container}>
+          <a href="/" className={classes.language}>
             <img
               src="https://cdn.britannica.com/79/4479-050-6EF87027/flag-Stars-and-Stripes-May-1-1795.jpg"
               alt="USA flag"
             />
-          </a>
-          <a href="">
             <select name="" id="">
               <option value="">EN</option>
             </select>
           </a>
+          
           <a href="">
             <p>Sign in</p>
             <span>Account & Lists</span>
@@ -55,8 +57,8 @@ export const Header = () => {
             <p>returns</p>
             <span>& Orders</span>
           </a>
-          <a href="">
-          <FaCartArrowDown size={35}/>
+          <a href="" className={classes.cart}>
+            <FaCartArrowDown size={35} />
             <span>0</span>
           </a>
         </div>
