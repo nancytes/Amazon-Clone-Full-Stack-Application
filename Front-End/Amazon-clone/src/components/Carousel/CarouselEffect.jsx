@@ -13,8 +13,6 @@ export const CarouselEffect = () => {
         showThumbs={false}
         showindicators={false}
         showStatus={false}
-        // interval={5000}
-        // transitionTime={1000}
       >
         {img.map((item) => {
           return (
