@@ -1,5 +1,4 @@
 import React from 'react'
-import {Categoryjson} from "./CategoryJSON"
 import { CategoryList } from './CategoryList'
 
 export const Category = () => {
