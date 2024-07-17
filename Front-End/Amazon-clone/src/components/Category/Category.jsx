@@ -1,12 +1,14 @@
-import React from 'react'
-import { CategoryList } from './CategoryList'
+import React from "react";
+import { CategoryJSON } from "./CategoryJSON";
+import {CategoryList} from "./CategoryList";
+import classes from "./Category.module.css"
 
 export const Category = () => {
   return (
-    <>
-    Categoryjson.map((info) => {
-        <CategoryList data = {info} />
-    })
-    </>
-  )
-}
+    <div className={classes.category_container}>
+      {CategoryJSON.map((info, index) => (
+        <CategoryList key={index} data={info} />
+      ))}
+    </div>
+  );
+};

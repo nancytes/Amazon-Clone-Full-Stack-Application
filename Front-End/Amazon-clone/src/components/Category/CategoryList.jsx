@@ -1,15 +1,18 @@
 import React from "react";
+import classes from "./Category.module.css"
 
-export const CategoryList = ({props}) => {
+export const CategoryList = ({data}) => {
+  const { title, img } = data;
   return (
-    <>
-      <link to="">
+    <div className={classes.category}>
+      <a href="">
         <span>
-          <h2>{props.title}</h2>
+          <h2>{title}</h2>
         </span>
-        <img src={props.img} alt="" />
+        <img src={img} alt={title} />
         <p>Shop now</p>
-      </link>
-    </>
+      </a>
+    </div>
   );
 };
+
