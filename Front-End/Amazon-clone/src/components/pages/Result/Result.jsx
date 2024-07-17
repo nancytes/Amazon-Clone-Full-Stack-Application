@@ -12,7 +12,7 @@ export const Result = () => {
     const [category, setCategory] = useState([]);
     useEffect(() => {
         console.log('Category Name:', categoryName);
-        axios.get(`${ProductURL}/category/${categoryName}`)
+        axios.get(`${ProductURL}/products/category/${categoryName}`)
         .then(res => setCategory(res.data))
         }, [categoryName])
   return (
