@@ -1,18 +1,12 @@
 import './App.css'
-import { CarouselEffect } from './components/Carousel/CarouselEffect'
-import { Category } from './components/Category/Category'
-import { Header } from './components/Header/Header'
-import { Products } from './components/Products/Products'
+import { Rounting } from './Rounting'
 
 
 function App() {
 
   return (
     <>
-     <Header />
-     <CarouselEffect />
-     <Category />
-     <Products />
+    <Rounting />
     </>
   )
 }

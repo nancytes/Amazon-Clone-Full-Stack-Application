@@ -5,6 +5,7 @@ import { FaSearch } from "react-icons/fa";
 import { FaCartArrowDown } from "react-icons/fa6";
 import "./LowerHeader"
 import { LowerHeader } from "./LowerHeader";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
   return (
@@ -12,12 +13,12 @@ export const Header = () => {
       <section className={classes.header_container}>
         {/* deliver section */}
         <div className={classes.logo_container}>
-          <a href="/">
+          <Link to="/">
             <img
               src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
               alt="amazon image"
             />
-          </a>
+          </Link>
           <span>
               <CiLocationOn />
             </span>
@@ -38,7 +39,7 @@ export const Header = () => {
           </div>
         {/* cart section */}
         <div className={classes.order_container}>
-          <a href="/" className={classes.language}>
+          <Link to="" className={classes.language}>
             <img
               src="https://cdn.britannica.com/79/4479-050-6EF87027/flag-Stars-and-Stripes-May-1-1795.jpg"
               alt="USA flag"
@@ -46,20 +47,20 @@ export const Header = () => {
             <select name="" id="">
               <option value="">EN</option>
             </select>
-          </a>
+          </Link>
           
-          <a href="">
+          <Link to="/auth">
             <p>Sign in</p>
             <span>Account & Lists</span>
-          </a>
-          <a href="">
+          </Link>
+          <Link to="/order">
             <p>returns</p>
             <span>& Orders</span>
-          </a>
-          <a href="" className={classes.cart}>
+          </Link>
+          <Link to="/cart" className={classes.cart}>
             <FaCartArrowDown size={35} />
             <span>0</span>
-          </a>
+          </Link>
         </div>
       </section>
       <LowerHeader />
