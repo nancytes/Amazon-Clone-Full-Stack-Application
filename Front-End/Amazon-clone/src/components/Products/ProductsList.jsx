@@ -7,11 +7,10 @@ import { DataContext } from "../DataProvider/DataProvider";
 import { Type } from "../../utilities/action.type";
 
 export const ProductsList = ({ product, flex, productDesc}) => {
-  const { image, title, id, rating, price, description } = product;
+  const { image, title, id, rating, price, description, renderAdd } = product;
 
 const {state, dispatch}=useContext(DataContext)
 
-console.log(state);
 
 const addToCart = () => {
   dispatch({type:Type.ADD_TO_BASKET, 
@@ -40,7 +39,10 @@ const addToCart = () => {
         {/* price */}
         <Currency amount={price} />
       </div>
-      <button className={classes.button} onClick={addToCart}>Add to cart</button>
+      {
+        renderAdd && (<button className={classes.button} onClick={addToCart}>Add to cart</button>)
+      }
+      
     </div>
   );
 };
