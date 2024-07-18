@@ -15,7 +15,7 @@ export const ProductDetail = () => {
         },[productID])
   return (
     <Layout>
-       <ProductsList product={product}/>
+       <ProductsList product={product} flex={true} productDesc={true}/>
     </Layout>
   )
 }
