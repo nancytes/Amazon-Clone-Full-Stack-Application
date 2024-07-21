@@ -5,26 +5,8 @@ export const initialState = {
 };
 
 export const reducer = (state, action) => {
-  // switch (action.type) {
-  //   case Type.ADD_TO_BASKET:
-  //     const existingItemIndex = state.basket.findIndex((item) => item.id === action.item.id);
-
-  //     if (existingItemIndex !== -1) {
-  //       const updatedBasket = [...state.basket];
-  //       updatedBasket[existingItemIndex].amount += 1;
-
-  //       return {
-  //         ...state,
-  //         basket: updatedBasket,
-  //       };
-  //     } else {
-        
-  //       return {
-  //         ...state,
-  //         basket: [...state.basket, { ...action.item, amount: 1 }],
-  //       };
-  //     }
-  switch (action.type) {
+ 
+ switch (action.type) {
     case Type.ADD_TO_BASKET:
       const existingitem = state.basket.find(
         (item) => item.id === action.item.id

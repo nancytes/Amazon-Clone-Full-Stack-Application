@@ -1,79 +1,3 @@
-// import React, { useContext } from 'react';
-// import { Layout } from '../../layout/Layout';
-// import { DataContext } from '../../DataProvider/DataProvider';
-// import { ProductsList } from '../../Products/ProductsList';
-// import Currency from '../../Currency/Currency';
-// import { Link } from 'react-router-dom';
-// import classes from './Cart.module.css';
-// import {} from "../../../utilities/action.type"
-
-// export const Cart = () => {
-//   const { state, dispatch } = useContext(DataContext);
-//   const { basket, user } = state;
-
-//   // Calculate total price of items in the basket
-//   const total = basket.reduce((amount, item) => {
-//     return amount + item.price * item.amount ; 
-//   },0);
-//   const increment=()=>{
-//     dispatch({
-//       type: Type.ADD_TO_BASKET,
-//       item
-//     })
-//   }
-//   const decrement=()=>{
-//     dispatch({
-//       type: Type.REMOVE_FROM_BASKET,
-//       id
-//     })
-//   }
-
-//   return (
-//     <Layout>
-//       <section className={classes.container}>
-//         <div className={classes.cart_container}>
-//           <h2>Hello, {user && user.name}</h2>
-//           <h3>Your shopping basket</h3>
-//           <hr />
-//           {basket?.length === 0 ? (
-//             <p>Oops! No items in your cart.</p>
-//           ) : (
-//             basket?.map((item) => {
-//               return <section className={classes.cart_product}>
-
-              
-//               <ProductsList key={item.id} product={item} flex={true} productDesc={true} renderAdd={false} />
-
-//               <div className={classes.btn_container}>
-//                 <button onClick={()=>increment(item)}>+</button>
-//                 <span>{item.amount}</span>
-//                 <button onClick={()=>decrement(item.id)}>-</button>
-//               </div>
-//               </section>
-//             })
-//           )}
-//         </div>
-//         {basket.length !== 0 && (
-//           <div className={classes.subtotal}>
-//             <div>
-//               <p>Subtotal: {basket.length} items</p>
-//               <Currency amount={total.toFixed(2)} /> {/* Ensure total is formatted to two decimal places */}
-//             </div>
-//             <span>
-//               <input type="checkbox" />
-//               <small>This order contains a gift</small>
-//             </span>
-//             <Link to="/payment">Continue to checkout</Link>
-//           </div>
-//         )}
-//       </section>
-//     </Layout>
-//   );
-// };
-
-
-
-
 import React, { useContext } from 'react';
 import { Layout } from '../../layout/Layout';
 import { DataContext } from '../../DataProvider/DataProvider';
@@ -84,6 +8,7 @@ import classes from './Cart.module.css';
 import { Type } from '../../../utilities/action.type'; 
 import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
+
 
 export const Cart = () => {
   const { state, dispatch } = useContext(DataContext);
@@ -137,7 +62,7 @@ export const Cart = () => {
           <div className={classes.subtotal}>
             <div>
               <p>Subtotal: {basket.length} items</p>
-              <Currency amount={total.toFixed(2)} /> {/* Ensure total is formatted to two decimal places */}
+              <Currency amount={total.toFixed(2)} /> 
             </div>
             <span>
               <input type="checkbox" />
