@@ -1,96 +1,62 @@
-.login{
-    height: 90vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.payment_header{
+    padding: 20px;
+    text-align: center;
+    font-size: 25px;
+    background-color: rgb(224, 229, 234);
 }
-.login img {
-    margin: 30px auto;
-    object-fit: contain;
-    width: 100px;
-}
-.login_container{
-    width: 350px;
-    display: flex;
-    flex-direction: column;
-    border-radius: 5px;
-    border: 1px solid lightgray;
+.payment{
     padding: 20px;
 }
-.login_container h1 {
-    font-size: 25px;
-    margin: 20px 0px;
-}
-.login_container form {
+.flex{
     display: flex;
-    flex-direction: column;
+    gap: 20px;
+    padding: 30px;
+}
+.flex h2{
+    min-width: 300px;
+}
+.flex img{
+    width: 80px !important;
+}
+.flex div {
+    height: auto !important;
+}
+.payment_card{
+    max-width: 350px;
+    width: 100%;
+}
+/* .payment_detail{
+    font-size: 20px;
+} */
+.payment_price{
+    padding: 20px;
+}
+.payment_price > div{
+    display: flex;
+    font-size: 16px;
     gap: 10px;
 }
-.login_container form div{
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-.login_container form input{
-    margin-bottom: 10px;
-    padding: 8px 16px;
-    background-color: white;
+.payment_detail button{
+    margin-top: 15px;
     width: 100%;
     border: none;
-    border: 1px solid gray;
-    border-radius: 3px;
-}
-.login_container form input:focus{
-    outline: 2px solid #F0C14B;
-}
-.login_signin{
-    border: none;
-    background: #F0C14B;
+    background-color: var(--primary-color);
     border-radius: 5px;
-    width: 100%;
-    height: 30px;
-    margin-top: 10px;
+    padding: 8px 10px;
     cursor: pointer;
 }
-.login_signin:hover{
-    background: var(--primary-shade);
+.payment_detail button:hover{
+    background-color: var(--primary-shade);
 }
-.login_container p{
-    padding: 10px 0px;
-    font-size: 14px;
-}
-.login_register{
-    border: none;
-    background: #e2dfdf;
-    border-radius: 5px;
-    width: 100%;
-    height: 30px;
-    margin-top: 10px;
-    cursor: pointer;
-}
-.login_register:hover{
-    background: rgb(201, 196, 196);
-}
-
-
-/* Ensure buttons use flexbox */
-.login_signin, .login_register {
+.loading{
     display: flex;
     align-items: center;
+    gap: 10px;
     justify-content: center;
-    position: relative; 
-  }
-  
-  /* Style for the loader */
-  .loader {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute; 
-  }
-  
-  
-  .login_signin, .login_register {
-    padding: 10px;
-  }
-  
+    color: rgb(52,52,52);
+}
+@media screen and (max-width: 768px) {
+    .flex{
+        flex-direction: column;
+    }
+}
