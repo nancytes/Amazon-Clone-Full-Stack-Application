@@ -8,6 +8,7 @@ import Currency from "../../Currency/Currency";
 import { axiosInstance } from "../../api/axios";
 import { CircularProgress } from "@mui/material";
 import { db } from "../../../utilities/firebase";
+import { useNavigate } from "react-router-dom";
 
 const Payment = () => {
   const { state, dispatch } = useContext(DataContext);
@@ -20,6 +21,8 @@ const Payment = () => {
   const [processing, setProcessing] = useState(false);
   const stripe = useStripe();
   const elements = useElements();
+const navigate = useNavigate();
+
   const handlechange = (e) => {
     e?.error?.message ? setcardError(e?.error?.message) : setcardError("");
   };
@@ -29,30 +32,40 @@ const Payment = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      setProcessing(true)
+      setProcessing(true);
       const response = await axiosInstance({
         method: "post",
-        url: `/payment/create?total=${total*100}`,
+        url: `/payment/create?total=${total * 100}`,
       });
-      
+
       const clientSecret = response.data?.clientSecret;
 
-      const {paymentIntent} = await stripe.confirmCardPayment(
+      const { paymentIntent } = await stripe.confirmCardPayment(
         clientSecret,
 
         {
-          payment_method:{
-          card: elements.getElement(CardElement)
+          payment_method: {
+            card: elements.getElement(CardElement),
+          },
         }
-      }
-      )
+      );
+      await db
+        .collection("users")
+        .doc(user.uid)
+        .collection("orders")
+        .doc(paymentIntent.id);
+      setProcessing({
+        basket: basket,
+        amount: paymentIntent.amount,
+        created: paymentIntent.created,
+      });
 
-setProcessing(false)
+      setProcessing(false);
+      navigate("/orders", {state:{msg: "you have placed new order"}})
     } catch (error) {
-      setProcessing(false)
+      setProcessing(false);
     }
-  }
-
+  };
 
   return (
     <Layout>
@@ -88,19 +101,20 @@ setProcessing(false)
                 <CardElement onChange={handlechange} />
                 <div className={classes.payment_price}>
                   <div>
-                    <span style={{display:"flex", gap:"10px" }}>
+                    <span style={{ display: "flex", gap: "10px" }}>
                       Total order | <Currency amount={total} />
                     </span>
                   </div>
                   <button type="submit">
-                    {
-                      processing? (
-                        <div className={classes.loading}><CircularProgress size={20} />
-                        <p>please wait</p></div>
-                      ): "Pay Now"
-                    }
-                    
-                    </button>
+                    {processing ? (
+                      <div className={classes.loading}>
+                        <CircularProgress size={20} />
+                        <p>please wait</p>
+                      </div>
+                    ) : (
+                      "Pay Now"
+                    )}
+                  </button>
                 </div>
               </form>
             </div>
