@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Landing } from "./components/pages/landing/Landing";
-import { Order } from "./components/pages/order/Order";
+import Order from "./components/pages/order/Order";
 import { Cart } from "./components/pages/Cart/Cart";
 import { SignUp } from "./components/pages/Auth/SignUp";
 import { Four04 } from "./components/pages/Four04/Four04";
@@ -23,7 +23,7 @@ export const Rounting = () => {
         <Route
           path="/order"
           element={
-            <ProtectedRoute msg={"You Must Login First To See Your Orders"} redirect={"/payment"}>
+            <ProtectedRoute msg="You Must Login First To See Your Orders" redirect="/payment">
               <Order />
             </ProtectedRoute>
           }
@@ -35,7 +35,7 @@ export const Rounting = () => {
         <Route
           path="/payment"
           element={
-            <ProtectedRoute msg={"You must Login First"} redirect={"/payment"}>
+            <ProtectedRoute msg="You must Login First" redirect="/payment">
               <Elements stripe={stripePromise}>
                 <Payment />
               </Elements>

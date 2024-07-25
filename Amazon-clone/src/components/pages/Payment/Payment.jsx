@@ -21,7 +21,7 @@ const Payment = () => {
   const [processing, setProcessing] = useState(false);
   const stripe = useStripe();
   const elements = useElements();
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handlechange = (e) => {
     e?.error?.message ? setcardError(e?.error?.message) : setcardError("");
@@ -52,16 +52,20 @@ const navigate = useNavigate();
       await db
         .collection("users")
         .doc(user.uid)
-        .collection("orders")
-        .doc(paymentIntent.id);
-      setProcessing({
-        basket: basket,
-        amount: paymentIntent.amount,
-        created: paymentIntent.created,
-      });
+        .collection("order")
+        .doc(paymentIntent.id)
+        .set({
+          basket: basket,
+          amount: paymentIntent.amount,
+          created: paymentIntent.created,
+        });
+// empty basket 
+dispatch({
+  type: "EMPTY_BASKET"
+  })
 
       setProcessing(false);
-      navigate("/orders", {state:{msg: "you have placed new order"}})
+      navigate("/order", { state: { msg: "you have placed new order" } });
     } catch (error) {
       setProcessing(false);
     }
